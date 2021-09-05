@@ -34,9 +34,24 @@ namespace Commander.Data
             _context.Commands.Add(cmd);
         }
 
+        public void UpdateCommand(Command cmd)
+        {
+            //nothing to do
+        }
+
         public bool SaveChanges()
         {
             return (_context.SaveChanges() >= 0);
+
+        }
+
+        public void DeleteCommand(Command cmd)
+        {
+            if (cmd == null)
+            {
+                throw new ArgumentNullException();
+            }
+            _context.Commands.Remove(cmd);
 
         }
     }
